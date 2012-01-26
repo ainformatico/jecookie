@@ -31,12 +31,17 @@ Usage
 ----------------------------------------------
 ###Create a cookie
     var cookie = new jecookie('cookie_name');
+    var cookie = new jecookie('cookie_name', {name : 'value'}, {secure :true, domain : '.example.org'});
 
 Params:
 
 * `name`: cookie name
 * `data`: data
-* `secure`: set as secure
+* `opts`: options
+  * `opts.secure` set secure
+  * `opts.domain` domain
+  * `opts.path` path
+  * `opts.expires` expiration, use 0 to session cookie
 
 ###Load a cookie
     cookie.load();
@@ -49,6 +54,14 @@ If `JSON` support:
 Otherwise:
 
     cookie.data = value;
+
+###Change options
+    cookie.opts.secure  = true;
+    cookie.opts.domain  = '.example.org'
+
+###Save data
+    cookie.save(); //default expiration
+    cookie.save(0); //session cookie
 
 ###Destroy a cookie
     cookie.destroy();
@@ -82,5 +95,10 @@ Support
 
 Version history
 ----------------------------------------------
-**1.0**
-* Basic base code
+* **1.0**
+  * Basic base code
+* **1.1**
+  * Third parameter as an options object in constructor
+  * Removed path param in save method
+  * Domain, path and session cookie support
+  * Control for array in loaded data
