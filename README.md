@@ -17,7 +17,7 @@ Javascript easy cookie manipulation.
 
 Author
 ----------------------------------------------
-El Chacal Del Útero
+Alejandro El Informático
 
 Requirements
 ---------------------------------------------
