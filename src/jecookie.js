@@ -1,7 +1,7 @@
 /**
  * Cookie utils
  *
- * @author El Chacal Del Útero
+ * @author Alejandro El Informático
  *
  * @version 1.0
  *
