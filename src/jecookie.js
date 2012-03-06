@@ -3,7 +3,7 @@
  *
  * @author Alejandro El Informático
  *
- * @version 1.0
+ * @version 1.1.1
  *
  * @created 20111204
  *
