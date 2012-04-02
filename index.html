@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jecookie by ainformatico</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jecookie</h1>
+        <p>Javascript easy cookie manipulation.</p>
+        <p class="view"><a href="https://github.com/ainformatico/jecookie">View the Project on GitHub <small>ainformatico/jecookie</small></a></p>
+        <ul>
+          <li><a href="https://github.com/ainformatico/jecookie/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ainformatico/jecookie/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ainformatico/jecookie">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>jecookie</h1>
+
+<p>Javascript easy cookie manipulation.</p>
+
+<h2>Requirements</h2>
+
+<p>The below requirements are only if you want to save and load <code>json</code> objects to cookie, if not you can save raw data.</p>
+
+<ul>
+<li>
+<code>JSON</code> <a href="https://github.com/douglascrockford/JSON-js">https://github.com/douglascrockford/JSON-js</a> to save <code>json</code> objects to cookie using <code>stringify</code> method.
+
+<ul>
+<li>Please consider browser native support or only copy the <code>stringify</code> method to your utilities.</li>
+</ul>
+</li>
+<li>
+<code>jQuery</code> <a href="https://github.com/jquery/jquery">https://github.com/jquery/jquery</a> to convert loaded content to <code>json</code> object.</li>
+</ul><h2>Usage</h2>
+
+<p>###Create a cookie
+    var cookie = new jecookie('cookie_name');
+    var cookie = new jecookie('cookie_name', {name : 'value'}, {secure :true, domain : '.example.org'});</p>
+
+<p>Params:</p>
+
+<ul>
+<li>
+<code>name</code>: cookie name</li>
+<li>
+<code>data</code>: data</li>
+<li>
+<code>opts</code>: options
+
+<ul>
+<li>
+<code>opts.secure</code> set secure</li>
+<li>
+<code>opts.domain</code> domain</li>
+<li>
+<code>opts.path</code> path</li>
+<li>
+<code>opts.expires</code> expiration, use 0 to session cookie</li>
+</ul>
+</li>
+</ul><p>###Load a cookie
+    cookie.load();</p>
+
+<p>###Change data
+If <code>JSON</code> support:</p>
+
+<pre><code>cookie.data = {name : value, content : value};
+</code></pre>
+
+<p>Otherwise:</p>
+
+<pre><code>cookie.data = value;
+</code></pre>
+
+<p>###Change options
+    cookie.opts.secure  = true;
+    cookie.opts.domain  = '.example.org'</p>
+
+<p>###Save data
+    cookie.save(); //default expiration
+    cookie.save(0); //session cookie</p>
+
+<p>###Destroy a cookie
+    cookie.destroy();</p>
+
+<h2>Example</h2>
+
+<pre><code>//...
+var cookie = new jecookie('settings');
+if(cookie.load()) //cookie exists
+{
+  my_element.height = cookie.data.height;
+  my_element.width  = cookie.data.width;
+}
+else //cookie does not exists
+{
+  cookie.data =
+  {
+    height : 100,
+    width  : 100
+  };
+  cookie.save();
+}
+//...
+</code></pre>
+
+<h2>Support</h2>
+
+<ul>
+<li>IE 6+</li>
+<li>FF 3+</li>
+<li>Chrome 10+</li>
+<li>Opera 10+</li>
+</ul><h2>Version history</h2>
+
+<ul>
+<li>
+<strong>1.0</strong>
+
+<ul>
+<li>Basic base code</li>
+</ul>
+</li>
+<li>
+<strong>1.1</strong>
+
+<ul>
+<li>Third parameter as an options object in constructor</li>
+<li>Removed path param in save method</li>
+<li>Domain, path and session cookie support</li>
+<li>Control for array in loaded data</li>
+</ul>
+</li>
+<li>
+<strong>1.1.1</strong>
+
+<ul>
+<li>Change to MIT license</li>
+</ul>
+</li>
+</ul><h2>Author</h2>
+
+<p>Alejandro El Informático</p>
+
+<h2>License</h2>
+
+<p>The MIT license</p>
+
+<p>Copyright (c) 2011 Alejandro El Infromático</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ainformatico">ainformatico</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
